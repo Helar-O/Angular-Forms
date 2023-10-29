@@ -1,0 +1,5 @@
+<div *ngIf="form.get(field)?.invalid && (form.get(field)?.dirty || form.get(field)?.touched)" class="form-error">
+  <div *ngIf="form.get(field)?.errors">
+    <i class="bi bi-x-circle"></i> {{ getFirstError(form.get(field)?.errors) }}
+  </div>
+</div>

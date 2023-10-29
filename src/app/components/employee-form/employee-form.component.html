@@ -1,0 +1,69 @@
+<header class="d-flex justify-content-between justify-content-center mb-3">
+  <h2>Employee Manager</h2>
+  <button
+    type="button"
+    class="btn {{isFormVisible ? 'btn-danger' : 'btn-success'}}"
+    (click)="toggleView()">
+    {{isFormVisible ? "Close" : "Add"}}
+  </button>
+</header>
+<form [hidden]="!isFormVisible" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <app-error-alert
+    [type]="alertType"
+    [text]="alertText.get(alertType)"
+  ></app-error-alert>
+  <div class="d-flex flex-wrap justify-content-center">
+    <div class="row w-100">
+      <div class="col-6">
+        <label for="name" class="form-label">Name: </label>
+        <input id="name" type="text" formControlName="name" class="form-control">
+
+        <app-error-message
+          [form]="employeeForm"
+          [field]="'name'"
+          [label]="'Name'"
+        ></app-error-message>
+      </div>
+
+      <div class="col-6">
+        <label for="email" class="form-label">Email: </label>
+        <input id="email" type="text" formControlName="email" class="form-control">
+
+        <app-error-message
+          [form]="employeeForm"
+          [field]="'email'"
+          [label]="'Email'"
+        ></app-error-message>
+      </div>
+    </div>
+
+    <div class="row w-100 mt-1">
+      <div class="col-6">
+        <label for="surname" class="form-label">Surname: </label>
+        <input id="surname" type="text" formControlName="surname" class="form-control">
+
+        <app-error-message
+          [form]="employeeForm"
+          [field]="'surname'"
+          [label]="'Surname'"
+        ></app-error-message>
+      </div>
+
+      <div class="col-6">
+        <label for="workingExperience" class="form-label">Working experience: </label>
+        <input id="workingExperience" type="text" formControlName="workingExperience" class="form-control">
+
+        <app-error-message
+          [form]="employeeForm"
+          [field]="'workingExperience'"
+          [label]="'Working experience'"
+        ></app-error-message>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-end gap-3 mt-3">
+    <button type="reset" class="btn btn btn-secondary" (click)="onReset()">Reset</button>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </div>
+</form>

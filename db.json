@@ -1,0 +1,25 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "John",
+      "surname": "Doe",
+      "email": "john.doe@example.com",
+      "workingExperience": "6"
+    },
+    {
+      "id": 2,
+      "name": "Jane",
+      "surname": "Smith",
+      "email": "jane.smith@example.com",
+      "workingExperience": "12"
+    },
+    {
+      "id": 3,
+      "name": "Robert",
+      "surname": "Johnson",
+      "email": "robert.johnson@example.com",
+      "workingExperience": "23.5"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<div class="d-flex flex-column">
+  <app-employee-form
+    (onAddEmployee)="addEmployee($event)"
+  ></app-employee-form>
+  <br>
+  <app-employee-profile
+    class="align-self-center w-75"
+    (deleteEmployee)="deleteEmployee($event)"
+    *ngFor="let employee of employees" [employee]="employee">
+  </app-employee-profile>
+</div>
