@@ -8,7 +8,8 @@ import {AlertType} from "../../enums/alert-type";
 })
 export class ErrorAlertComponent {
   @Input() text?: string;
-  @Input() type: AlertType = AlertType.NONE;
+  @Input() type: AlertType = AlertType.INFO;
+  @Input() showAlert: boolean = false;
 
   protected readonly AlertType = AlertType;
 }

@@ -9,6 +9,7 @@
 </header>
 <form [hidden]="!isFormVisible" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
   <app-error-alert
+    [showAlert]="showAlert"
     [type]="alertType"
     [text]="alertText.get(alertType)"
   ></app-error-alert>

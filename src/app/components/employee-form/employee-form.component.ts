@@ -12,7 +12,9 @@ import {AlertType} from "../../enums/alert-type";
 export class EmployeeFormComponent {
   @Output() onAddEmployee: EventEmitter<Employee> = new EventEmitter<Employee>();
   isFormVisible: boolean = false;
-  alertType: AlertType = AlertType.NONE;
+
+  showAlert: boolean = false;
+  alertType: AlertType = AlertType.INFO;
   alertText: Map<AlertType, string> = new Map([
     [AlertType.SUCCESS, "Form submitted successfully!"],
     [AlertType.ERROR, "Form has invalid values!"],
@@ -35,7 +37,6 @@ export class EmployeeFormComponent {
 
   toggleView(): void {
     this.isFormVisible = !this.isFormVisible;
-    this.alertType = AlertType.NONE;
     this.employeeForm.reset();
   }
 
@@ -43,10 +44,10 @@ export class EmployeeFormComponent {
     if (this.employeeForm.valid) {
       const newEmployee: Employee = this.employeeForm.getRawValue();
       this.onAddEmployee.emit(newEmployee);
-      this.alertType = AlertType.SUCCESS;
+      this.toggleAlert(AlertType.SUCCESS);
       this.employeeForm.reset();
     } else {
-      this.alertType = AlertType.ERROR;
+      this.toggleAlert(AlertType.ERROR);
       Object.keys(this.employeeForm.controls).forEach(controlName => {
         const control = this.employeeForm.get(controlName);
         if (control && control.invalid) {
@@ -57,6 +58,11 @@ export class EmployeeFormComponent {
   }
 
   onReset(): void {
-    this.alertType = AlertType.INFO;
+    this.toggleAlert(AlertType.INFO);
+  }
+
+  private toggleAlert(alertType:AlertType): void {
+    this.alertType = alertType;
+    this.showAlert = true;
   }
 }
