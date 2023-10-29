@@ -28,6 +28,7 @@ export class EmployeeFormComponent {
     ]),
     workingExperience: new FormControl(null, [
       Validators.required,
+      NumberValidator.negativeNumberValidator(),
       NumberValidator.decimalPlacesValidator(1)
     ])
   });

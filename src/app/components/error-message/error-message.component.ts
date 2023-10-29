@@ -17,6 +17,7 @@ export class ErrorMessageComponent implements OnInit {
     this.messages.set("email", "Invalid email");
     this.messages.set("notANumber", this.label + " is not a number.");
     this.messages.set("tooManyDecimalPlaces", "Too many decimal places.");
+    this.messages.set("negativeNumber", "Number can not be negative.")
   }
 
   getFirstError(errors: any): string {

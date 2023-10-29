@@ -26,19 +26,6 @@
       </div>
 
       <div class="col-6">
-        <label for="email" class="form-label">Email: </label>
-        <input id="email" type="text" formControlName="email" class="form-control">
-
-        <app-error-message
-          [form]="employeeForm"
-          [field]="'email'"
-          [label]="'Email'"
-        ></app-error-message>
-      </div>
-    </div>
-
-    <div class="row w-100 mt-1">
-      <div class="col-6">
         <label for="surname" class="form-label">Surname: </label>
         <input id="surname" type="text" formControlName="surname" class="form-control">
 
@@ -46,6 +33,19 @@
           [form]="employeeForm"
           [field]="'surname'"
           [label]="'Surname'"
+        ></app-error-message>
+      </div>
+    </div>
+
+    <div class="row w-100 mt-1">
+      <div class="col-6">
+        <label for="email" class="form-label">Email: </label>
+        <input id="email" type="text" formControlName="email" class="form-control">
+
+        <app-error-message
+          [form]="employeeForm"
+          [field]="'email'"
+          [label]="'Email'"
         ></app-error-message>
       </div>
 
