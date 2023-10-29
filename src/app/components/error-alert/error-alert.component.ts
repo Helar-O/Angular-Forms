@@ -11,5 +11,11 @@ export class ErrorAlertComponent {
   @Input() type: AlertType = AlertType.INFO;
   @Input() showAlert: boolean = false;
 
+  alertIcon: Map<AlertType, string> = new Map([
+    [AlertType.INFO, "bi-info-circle-fill"],
+    [AlertType.SUCCESS, "bi-check-circle-fill"],
+    [AlertType.ERROR, "bi-x-circle-fill"]
+  ]);
+
   protected readonly AlertType = AlertType;
 }

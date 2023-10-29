@@ -1,3 +1,3 @@
 <div *ngIf="showAlert" class="alert alert-{{AlertType[type].toString().toLowerCase()}}" role="alert">
-  <i class="bi bi-check-circle-fill"></i> {{text}}
+  <i class="bi {{alertIcon.get(type)}}"></i> {{text}}
 </div>
