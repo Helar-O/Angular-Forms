@@ -38,16 +38,17 @@ export class EmployeeFormComponent {
   toggleView(): void {
     this.isFormVisible = !this.isFormVisible;
     this.employeeForm.reset();
+    this.toggleAlert(false);
   }
 
   onSubmit(): void {
     if (this.employeeForm.valid) {
       const newEmployee: Employee = this.employeeForm.getRawValue();
       this.onAddEmployee.emit(newEmployee);
-      this.toggleAlert(AlertType.SUCCESS);
+      this.toggleAlert(true, AlertType.SUCCESS);
       this.employeeForm.reset();
     } else {
-      this.toggleAlert(AlertType.ERROR);
+      this.toggleAlert(true, AlertType.ERROR);
       Object.keys(this.employeeForm.controls).forEach(controlName => {
         const control = this.employeeForm.get(controlName);
         if (control && control.invalid) {
@@ -58,11 +59,11 @@ export class EmployeeFormComponent {
   }
 
   onReset(): void {
-    this.toggleAlert(AlertType.INFO);
+    this.toggleAlert(true, AlertType.INFO);
   }
 
-  private toggleAlert(alertType:AlertType): void {
-    this.alertType = alertType;
-    this.showAlert = true;
+  private toggleAlert(show:boolean, alertType?:AlertType): void {
+    if (alertType !== undefined) this.alertType = alertType;
+    this.showAlert = show;
   }
 }
